@@ -9,7 +9,13 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 
 router.post('/new/destination', (req, res) => {
-    res.redirect('/new/name')
+
+    if (req.body.new.destination ==  'Neither - I do not want to go to the Moon or Mars') {
+        res.redirect('/new/cannot-travel')    
+    }
+    else   
+        res.redirect('/new/name')
+    
 })
 
 router.post('/new/name', (req, res) => {
