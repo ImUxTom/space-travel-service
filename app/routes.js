@@ -25,3 +25,8 @@ router.post('/new/name', (req, res) => {
 router.post('/new/address', (req, res) => {
     res.redirect('/new/check')
 })
+
+
+router.post('/new/check', (req, res) => {
+    res.redirect('/new/confirmation')
+})

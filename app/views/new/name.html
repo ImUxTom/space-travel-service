@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "What is your full name?" %}
+{% set pageName = "Your name" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -19,17 +19,18 @@
     {# <p class="govuk-body">Tell us where you would like to travel to in space.</p> #}
 
     <form method="post">
+
       {{ govukInput({
         id: "new[firstName]",
         name: "new[firstName]",
         label: {
           text: "First name",
-          classes: "govuk-label--m"
+          classes: "govuk-label--s"
         },
         hint: {
           text: "Or given name"
         },
-        value: new.firstName
+        value: data.new.firstName
       }) }}
 
       {{ govukInput({
@@ -37,17 +38,18 @@
         name: "new[lastName]",
         label: {
           text: "Last name",
-          classes: "govuk-label--m"
+          classes: "govuk-label--s"
         },
         hint: {
           text: "Or family name"
         },
-        value: new.lastName
+        value: data.new.lastName
       }) }}
 
       {{ govukButton({
         text: "Continue"
       }) }}
+
     </form>
     
   </div>

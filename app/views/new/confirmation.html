@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "You have booked a trip to " + new.destination,
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+      <p class="govuk-body">We have sent you a confirmation email.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        Enjoy your trip to {{ data.new.destination }}
+      </p>
+      <p class="govuk-body">
+        Dont forget your spacesuit.
+      </p>
+
+      <p class="govuk-body">
+        <a href="/" class="govuk-link">Book another trip</a> 
+      </p>
+    </div>
+  </div>
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "What is your address?" %}
+{% set pageName = "Check your answers before booking your trip" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -13,7 +13,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">Check your answers before booking your space trip</h1>
+      <h1 class="govuk-heading-l">{{ pageName }}</h1>
 
       <h2 class="govuk-heading-m">Booking details</h2>
 
@@ -30,16 +30,16 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/new/destination",
                   text: "Change",
-                  visuallyHiddenText: "name"
+                  visuallyHiddenText: "your destination"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Full name"
+              text: "Your name"
             },
             value: {
               html: data.new.firstName + " " + data.new.lastName
@@ -47,9 +47,9 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/new/name",
                   text: "Change",
-                  visuallyHiddenText: "date of birth"
+                  visuallyHiddenText: "your name"
                 }
               ]
             }
@@ -57,17 +57,17 @@
           
           {
             key: {
-              text: "Address"
+              text: "Your address"
             },
             value: {
-              html: "72 Guild Street<br>London<br>SE23 6FH"
+              html: data.new.addressLine1
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/new/address",
                   text: "Change",
-                  visuallyHiddenText: "address"
+                  visuallyHiddenText: "your address"
                 }
               ]
             }
@@ -81,12 +81,12 @@
       <h2 class="govuk-heading-m">Now send your booking information</h2>
       <p class="govuk-body">By submitting this booking you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
-      <form action="/form-handler" method="post" novalidate>
+      <form method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 
         {{ govukButton({
-          text: "Accept and send"
+          text: "Confirm and book"
         }) }}
 
       </form>
