@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "What is your address?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers before booking your space trip</h1>
+
+      <h2 class="govuk-heading-m">Booking details</h2>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Destination"
+            },
+            value: {
+              html: data.new.destination
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Full name"
+            },
+            value: {
+              html: data.new.firstName + " " + data.new.lastName
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+            }
+          },
+          
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "72 Guild Street<br>London<br>SE23 6FH"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+     
+
+      <h2 class="govuk-heading-m">Now send your booking information</h2>
+      <p class="govuk-body">By submitting this booking you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      <form action="/form-handler" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Which planet would you like to travel to?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {# <h1 class="govuk-heading-l">{{ pageName }}</h1> #}
+    {# <p class="govuk-body">Tell us where you would like to travel to in space.</p> #}
+
+    <form method="post">
+      {{ govukRadios({
+        name: "new[destination]",
+        fieldset: {
+          legend: {
+            text: pageName,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        value: new.destination,
+        items: [
+          {
+            value: "Moon",
+            text: "Moon"
+          },
+          {
+            value: "Mars",
+            text: "Mars"
+          },
+          {
+            value: "I do not want to go to the Moon or Mars",
+            text: "I do not want to go to the Moon or Mars"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>    
+  </div>
+</div>
+
+{% endblock %}
