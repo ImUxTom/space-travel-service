@@ -10,6 +10,13 @@
 {% endblock %}
 
 {% block content %}
+
+  {% set address %}
+    {{data.new.addressLine1}}<br>
+    {{data.new.addressTown}}<br>
+    {{data.new.addressPostcode}}
+  {% endset %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
@@ -57,10 +64,10 @@
           
           {
             key: {
-              text: "Your address"
+              text: "Address"
             },
             value: {
-              html: data.new.addressLine1
+              html: address
             },
             actions: {
               items: [
@@ -81,7 +88,7 @@
       <h2 class="govuk-heading-m">Now send your booking information</h2>
       <p class="govuk-body">By submitting this booking you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
-      <form method="post" novalidate>
+      <form smethod="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 
