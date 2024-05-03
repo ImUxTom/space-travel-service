@@ -1,6 +1,11 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "Check your answers before booking your trip" %}
+{% set pageName %}
+  {% if data.new.destination %}
+   {{data.new.destination}} 
+  {% endif %}
+{% endset %}
+
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -26,7 +31,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">{{ pageName }}</h1>
+      <h1 class="govuk-heading-l">Check details and confirm your booking for {{ pageName }}</h1>
 
       <h2 class="govuk-heading-m">Booking details</h2>
 
