@@ -13,7 +13,13 @@
 
   {% set address %}
     {{data.new.addressLine1}}<br>
+      {% if data.new.addressLine2 %}
+        {{data.new.addressLine2}}<br>
+      {% endif %}
     {{data.new.addressTown}}<br>
+      {% if data.new.addressCounty %}
+        {{data.new.addressCounty}}<br>
+      {% endif %}
     {{data.new.addressPostcode}}
   {% endset %}
 
