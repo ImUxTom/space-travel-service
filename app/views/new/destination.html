@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "Which planet would you like to go to?" %}
+{% set pageName = "Where would you like to go to?" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -30,8 +30,8 @@
         value: data.new.destination,
         items: [
           {
-            value: "Moon",
-            text: "Moon"
+            value: "the Moon",
+            text: "The Moon"
           },
           {
             value: "Mars",

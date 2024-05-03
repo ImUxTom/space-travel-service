@@ -48,7 +48,7 @@
             actions: {
               items: [
                 {
-                  href: "/new/destination",
+                  href: "/new/destination?returnUrl=/new/check",
                   text: "Change",
                   visuallyHiddenText: "your destination"
                 }
@@ -65,7 +65,7 @@
             actions: {
               items: [
                 {
-                  href: "/new/name",
+                  href: "/new/name?returnUrl=/new/check",
                   text: "Change",
                   visuallyHiddenText: "your name"
                 }
@@ -83,7 +83,7 @@
             actions: {
               items: [
                 {
-                  href: "/new/address",
+                  href: "/new/address?returnUrl=/new/check",
                   text: "Change",
                   visuallyHiddenText: "your address"
                 }
@@ -99,7 +99,7 @@
       <h2 class="govuk-heading-m">Now send your booking information</h2>
       <p class="govuk-body">By submitting this booking you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
-      <form smethod="post" novalidate>
+      <form method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 

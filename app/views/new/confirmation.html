@@ -4,10 +4,16 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {{ govukPanel({
-        titleText: "You have booked a trip to " + new.destination,
-        html: "Your reference number<br><strong>HDJ2123F</strong>"
-      }) }}
+      
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          You have booked a trip to {{ data.new.destination }}
+        </h1>
+        <div class="govuk-panel__body">
+          Your reference number<br><strong>SPaC3M4N</strong>
+        </div>
+      </div>
 
       <p class="govuk-body">We have sent you a confirmation email.</p>
 
